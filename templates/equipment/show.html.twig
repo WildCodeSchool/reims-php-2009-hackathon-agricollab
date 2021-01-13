@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Equipment{% endblock %}
+
+{% block body %}
+    <h1>Equipment</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ equipment.id }}</td>
+            </tr>
+            <tr>
+                <th>Registration</th>
+                <td>{{ equipment.registration }}</td>
+            </tr>
+            <tr>
+                <th>Brand</th>
+                <td>{{ equipment.brand }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ equipment.type }}</td>
+            </tr>
+            <tr>
+                <th>Model</th>
+                <td>{{ equipment.model }}</td>
+            </tr>
+            <tr>
+                <th>RegistrationYear</th>
+                <td>{{ equipment.registrationYear ? equipment.registrationYear|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>BuyValue</th>
+                <td>{{ equipment.buyValue }}</td>
+            </tr>
+            <tr>
+                <th>Lifetime</th>
+                <td>{{ equipment.lifetime }}</td>
+            </tr>
+            <tr>
+                <th>WorkTime</th>
+                <td>{{ equipment.workTime }}</td>
+            </tr>
+            <tr>
+                <th>Horsepower</th>
+                <td>{{ equipment.horsepower }}</td>
+            </tr>
+            <tr>
+                <th>UseCost</th>
+                <td>{{ equipment.useCost }}</td>
+            </tr>
+            <tr>
+                <th>ResidualValue</th>
+                <td>{{ equipment.residualValue }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('equipment_index') }}">back to list</a>
+
+    <a href="{{ path('equipment_edit', {'id': equipment.id}) }}">edit</a>
+
+    {{ include('equipment/_delete_form.html.twig') }}
+{% endblock %}
