@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Equipment index{% endblock %}
+
+{% block body %}
+    <h1>Equipment index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Registration</th>
+                <th>Brand</th>
+                <th>Type</th>
+                <th>Model</th>
+                <th>RegistrationYear</th>
+                <th>BuyValue</th>
+                <th>Lifetime</th>
+                <th>WorkTime</th>
+                <th>Horsepower</th>
+                <th>UseCost</th>
+                <th>ResidualValue</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for equipment in equipment %}
+            <tr>
+                <td>{{ equipment.id }}</td>
+                <td>{{ equipment.registration }}</td>
+                <td>{{ equipment.brand }}</td>
+                <td>{{ equipment.type }}</td>
+                <td>{{ equipment.model }}</td>
+                <td>{{ equipment.registrationYear ? equipment.registrationYear|date('Y-m-d') : '' }}</td>
+                <td>{{ equipment.buyValue }}</td>
+                <td>{{ equipment.lifetime }}</td>
+                <td>{{ equipment.workTime }}</td>
+                <td>{{ equipment.horsepower }}</td>
+                <td>{{ equipment.useCost }}</td>
+                <td>{{ equipment.residualValue }}</td>
+                <td>
+                    <a href="{{ path('equipment_show', {'id': equipment.id}) }}">show</a>
+                    <a href="{{ path('equipment_edit', {'id': equipment.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('equipment_new') }}">Create new</a>
+{% endblock %}
