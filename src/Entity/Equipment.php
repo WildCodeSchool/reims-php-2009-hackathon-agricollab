@@ -73,6 +73,11 @@ class Equipment
      */
     private int $residualValue;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="equipment")
+     */
+    private User $owner;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -206,6 +211,18 @@ class Equipment
     public function setResidualValue(int $residualValue): self
     {
         $this->residualValue = $residualValue;
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(User $owner): self
+    {
+        $this->owner = $owner;
 
         return $this;
     }
