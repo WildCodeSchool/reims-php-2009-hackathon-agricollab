@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -56,6 +58,16 @@ class User
      * @ORM\Column(type="string", length=255)
      */
     private string $phone;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Equipment::class, mappedBy="owner")
+     */
+    private Collection $equipment;
+
+    public function __construct()
+    {
+        $this->equipment = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -154,6 +166,36 @@ class User
     public function setPhone(string $phone): self
     {
         $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Equipment[]
+     */
+    public function getEquipment(): Collection
+    {
+        return $this->equipment;
+    }
+
+    public function addEquipment(Equipment $equipment): self
+    {
+        if (!$this->equipment->contains($equipment)) {
+            $this->equipment[] = $equipment;
+            $equipment->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEquipment(Equipment $equipment): self
+    {
+        if ($this->equipment->removeElement($equipment)) {
+            // set the owning side to null (unless already changed)
+            if ($equipment->getOwner() === $this) {
+                $equipment->setOwner($this);
+            }
+        }
 
         return $this;
     }
