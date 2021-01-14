@@ -60,7 +60,7 @@ class Calculator
                 break;
             default:
         }
-        $simpleEstimation = (($buyValue - $residualValue) / $lifeTime) / $workTime;
+        $simpleEstimation = ($buyValue - $residualValue) / $lifeTime / $workTime;
         return $simpleEstimation;
     }
 }
