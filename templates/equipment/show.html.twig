@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Equipment{% endblock %}
+{% block title %}Equipements{% endblock %}
 
 {% block body %}
-    <h1>Equipment</h1>
+    <h1>Equipements</h1>
 
     <table class="table">
         <tbody>
@@ -12,55 +12,55 @@
                 <td>{{ equipment.id }}</td>
             </tr>
             <tr>
-                <th>Registration</th>
+                <th>Immatriculation</th>
                 <td>{{ equipment.registration }}</td>
             </tr>
             <tr>
-                <th>Brand</th>
+                <th>Marque</th>
                 <td>{{ equipment.brand }}</td>
             </tr>
             <tr>
-                <th>Type</th>
+                <th>Catégorie</th>
                 <td>{{ equipment.type }}</td>
             </tr>
             <tr>
-                <th>Model</th>
+                <th>Modèle</th>
                 <td>{{ equipment.model }}</td>
             </tr>
             <tr>
-                <th>RegistrationYear</th>
+                <th>Année</th>
                 <td>{{ equipment.registrationYear ? equipment.registrationYear|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>BuyValue</th>
+                <th>Valeur d'achat</th>
                 <td>{{ equipment.buyValue }}</td>
             </tr>
             <tr>
-                <th>Lifetime</th>
+                <th>Durée de vie</th>
                 <td>{{ equipment.lifetime }}</td>
             </tr>
             <tr>
-                <th>WorkTime</th>
+                <th>Heures de travail</th>
                 <td>{{ equipment.workTime }}</td>
             </tr>
             <tr>
-                <th>Horsepower</th>
+                <th>Puissance du véhicule</th>
                 <td>{{ equipment.horsepower }}</td>
             </tr>
             <tr>
-                <th>UseCost</th>
+                <th>Coût d'utilisation</th>
                 <td>{{ equipment.useCost }}</td>
             </tr>
             <tr>
-                <th>ResidualValue</th>
+                <th>Valeur résiduelle</th>
                 <td>{{ equipment.residualValue }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('equipment_index') }}">back to list</a>
+    <a href="{{ path('equipment_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('equipment_edit', {'id': equipment.id}) }}">edit</a>
+    <a href="{{ path('equipment_edit', {'id': equipment.id}) }}">Editer</a>
 
     {{ include('equipment/_delete_form.html.twig') }}
 {% endblock %}
