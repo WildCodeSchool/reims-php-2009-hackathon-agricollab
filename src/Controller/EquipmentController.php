@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Service\Calculator;
 
 /**
  * @Route("/equipment")
@@ -28,7 +29,7 @@ class EquipmentController extends AbstractController
     /**
      * @Route("/simple", name="simple_equipment", methods={"GET"})
      */
-    public function simpleEquipment(SessionInterface $session, Request $request): Response
+    public function simpleEquipment(SessionInterface $session, Request $request, Calculator $calculator): Response
     {
         $size = $request->query->get('size');
         $age = $request->query->get('age');
@@ -48,11 +49,14 @@ class EquipmentController extends AbstractController
             $session->set('usage', $usage);
         }
 
+        $result = $calculator->estimate();
+
         return $this->render('equipment/simple.html.twig', [
             'size' => $session->get('size'),
             'age' => $session->get('age'),
             'color' => $session->get('color'),
-            'usage' => $session->get('usage')
+            'usage' => $session->get('usage'),
+            'result' => $result
         ]);
     }
 
