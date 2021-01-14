@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Estimation simplifié{% endblock %}
+{% block title %}Estimation simplifiée{% endblock %}
 
 {% block body %}
     <h1>Create new Equipment</h1>
@@ -25,10 +25,10 @@
     
     <div class="tractorUsage">
         <a href="?usage=low" class="{{usage == 'low'? 'selected': 'notSelected'}}">Faible </a>
-        <a href="?usage=moderate" class="{{usage == 'moderate'? 'selected': 'notSelected'}}">Modere </a>
+        <a href="?usage=moderate" class="{{usage == 'moderate'? 'selected': 'notSelected'}}">Modéré </a>
         <a href="?usage=intense" class="{{usage == 'intense'? 'selected': 'notSelected'}}">Intense </a>
     </div>
     {{result}}
-    <a href="{{ path('equipment_index') }}">Liste du materiel</a>
+    <a href="{{ path('equipment_index') }}">Liste du matériel</a>
     <a href="{{ path('equipment_new') }}">Affiner</a>
 {% endblock %}
