@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Estimation simplifié{% endblock %}
+
+{% block body %}
+    <h1>Create new Equipment</h1>
+    <div class="tractorSize">
+        <a href="?size=small" class="{{size == 'small'? 'selected': 'notSelected'}}">Petit</a>
+        <a href="?size=medium" class="{{size == 'medium'? 'selected': 'notSelected'}}">Moyen</a>
+        <a href="?size=large" class="{{size == 'large'? 'selected': 'notSelected'}}">Gros</a>
+    </div>
+
+    <div class="tractorAge">
+        <a href="?age=old" class="{{age == 'old'? 'selected': 'notSelected'}}">Ancien </a>
+        <a href="?age=average" class="{{age == 'average'? 'selected': 'notSelected'}}">Moyen </a>
+        <a href="?age=new" class="{{age == 'new'? 'selected': 'notSelected'}}">Récent </a>
+    </div>
+
+    <div class="tractorColor">
+        <a href="?color=red" class="{{color == 'red'? 'selected': 'notSelected'}}">Rouge </a>
+        <a href="?color=yellow" class="{{color == 'yellow'? 'selected': 'notSelected'}}">Jaune </a>
+        <a href="?color=blue" class="{{color == 'blue'? 'selected': 'notSelected'}}">Blue </a>
+        <a href="?color=green" class="{{color == 'green'? 'selected': 'notSelected'}}">Vert </a>
+    </div>
+    
+    <div class="tractorUsage">
+        <a href="?usage=low" class="{{usage == 'low'? 'selected': 'notSelected'}}">Faible </a>
+        <a href="?usage=moderate" class="{{usage == 'moderate'? 'selected': 'notSelected'}}">Modere </a>
+        <a href="?usage=intance" class="{{usage == 'intance'? 'selected': 'notSelected'}}">Intance </a>
+    </div>
+    <a href="{{ path('equipment_index') }}">Liste du materiel</a>
+    <a href="{{ path('equipment_new') }}">Affiner</a>
+{% endblock %}
