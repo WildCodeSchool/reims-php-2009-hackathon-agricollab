@@ -25,7 +25,7 @@ class EquipmentController extends AbstractController
             'equipment' => $equipmentRepository->findAll(),
         ]);
     }
-    /** 
+    /**
      * @Route("/simple", name="simple_equipment", methods={"GET"})
      */
     public function simpleEquipment(SessionInterface $session, Request $request): Response
@@ -49,10 +49,10 @@ class EquipmentController extends AbstractController
         }
 
         return $this->render('equipment/simple.html.twig', [
-            'size'=>$session->get('size'),
-            'age'=>$session->get('age'),
-            'color'=>$session->get('color'),
-            'usage'=>$session->get('usage')
+            'size' => $session->get('size'),
+            'age' => $session->get('age'),
+            'color' => $session->get('color'),
+            'usage' => $session->get('usage')
         ]);
     }
 
