@@ -3,11 +3,13 @@
 {% block title %}Editer l'équipement{% endblock %}
 
 {% block body %}
-    <h1>Editer l'équipement</h1>
+    <h1 class="edit-title">Modifier l'équipement</h1>
 
-    {{ include('equipment/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('equipment_index') }}">Retour à la liste</a>
-
-    {{ include('equipment/_delete_form.html.twig') }}
-{% endblock %}
+    <div class="edit-form">
+        {{ include('equipment/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+    </div>
+    
+    <div class="edit-button-delete">
+        {{ include('equipment/_delete_form.html.twig') }}
+    </div>
+{% endblock %}    
