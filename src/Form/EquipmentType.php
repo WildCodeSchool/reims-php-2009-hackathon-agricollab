@@ -25,7 +25,7 @@ class EquipmentType extends AbstractType
             ->add('lifetime', IntegerType::class, ['label' => "Durée de vie"])
             ->add('workTime', IntegerType::class, ['label' => "Heures de travail"])
             ->add('horsepower', IntegerType::class, ['label' => "Puissance du véhicule"])
-            ->add('useCost', NumberType::class, ['label' => "Coût d'utilisation"])
+            //->add('useCost', NumberType::class, ['label' => "Coût d'utilisation"])
             ->add('residualValue', IntegerType::class, ['label' => "Valeur résiduelle"])
         ;
     }
