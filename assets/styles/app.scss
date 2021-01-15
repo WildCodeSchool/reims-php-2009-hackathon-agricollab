@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
+@font-face{
+    font-family:"OpenSans-Regular";
+    src: url("OpenSans-Regular.ttf");
+}
+
 body {
     background-color: $catskillWhite ;
     color: $oxfordBlue;
@@ -11,6 +16,7 @@ body {
     align-items: center;
     margin: 0;
     padding: 0;
+    font-family: 'OpenSans-Regular';
 }
 
 h1, h2,
@@ -128,4 +134,151 @@ details {
 
 .navbar-icon {
     width: 3.5em;
+}
+
+// CSS du profil utilisateur (user/show.html.twig)
+
+.user-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-left: 3.5rem;
+}
+
+.user-icon {
+    width: 10rem;
+    height: auto;
+}
+
+.user-profil {
+    width: 60%;
+    background-color: #cfdae5;
+    border-radius: 30px 0px;
+    justify-content: center;
+    font-size: 1rem;
+    font-style: normal;
+    color: rgb(78, 72, 72);
+    border-spacing: 1.4rem;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.user-profil th {
+    display: block;
+    margin-left: 1rem;
+    text-align: left;
+}
+
+.edit-delete-section {
+    width: 83%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.user-button {
+    color: white;
+    background-color: #2b8000;
+    border-radius: 2px;
+    font-size: 0.7rem;
+    width: 7rem;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+    text-align: center;
+    margin-right: 1rem;
+}
+
+.user-button-delete {
+    background-color: #ff0000;
+    color: rgb(78, 72, 72);
+    border-radius: 2px;
+    font-size: 0.7rem;
+    width: 7rem;
+    padding: 0.6rem 0rem;
+    text-align: center;
+    color: #ffffff;
+    border: none;
+}
+
+.user-back {
+    color: white;
+    background-color: #0080bf;
+    border-radius: 2px;
+    font-size: 0.7rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    text-align: center;
+    margin-left: 1rem;
+}
+
+.left-plant {
+    position: fixed;
+    bottom: 0;
+    width: 9rem;
+    height: auto;
+    right: 1rem;
+}
+
+// CSS de l'édition du profil utilisateur (user/edit.html.twig)
+
+.btn {
+    background-color: #2b8000;
+    color: rgb(78, 72, 72);
+    border-radius: 2px;
+    font-size: 0.7rem;
+    width: 7rem;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ffffff;
+    border: none;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.edit-title {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 0rem;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-form form {
+    padding: 5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.edit-form label {
+    margin-bottom: 1rem;
+}
+
+
+.edit-form input {
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    border: solid 1px grey;
+    margin-bottom:1rem;
+    margin-top: 0.5rem;
+}
+
+.edit-button-delete {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -4rem;
+    margin-bottom: 7rem;
+    font-size: 1em;
+    width: 10rem;
+    padding: 0.6rem 0rem;
 }

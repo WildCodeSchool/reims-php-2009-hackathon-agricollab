@@ -3,11 +3,13 @@
 {% block title %}Editer le profil{% endblock %}
 
 {% block body %}
-    <h1>Editer le profil</h1>
+    <h1 class="edit-title">Modifier le profil</h1>
 
-    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="edit-form">
+    {{ include('user/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+    </div>
 
-    <a href="{{ path('user_index') }}">Retour à la liste</a>
-
-    {{ include('user/_delete_form.html.twig') }}
+    <div class="edit-button-delete">
+        {{ include('user/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

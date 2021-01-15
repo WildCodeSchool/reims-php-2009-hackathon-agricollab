@@ -3,9 +3,10 @@
 {% block title %}Nouvel équipement{% endblock %}
 
 {% block body %}
-    <h1>Créer nouvel équipement</h1>
+    <h1 class="edit-title">Créer nouvel équipement</h1>
 
-    {{ include('equipment/_form.html.twig') }}
-
-    <a href="{{ path('equipment_index') }}">Retour à la liste</a>
+    <div class="edit-form">
+        {{ include('equipment/_form.html.twig') }}
+    </div>
+    
 {% endblock %}
