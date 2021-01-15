@@ -3,9 +3,10 @@
 {% block title %}Nouveau profil{% endblock %}
 
 {% block body %}
-    <h1>Créer un nouveau profil</h1>
+    <h1 class="edit-title">Créer un nouveau profil</h1>
 
-    {{ include('user/_form.html.twig') }}
-
-    <a href="{{ path('user_index') }}">Retour à la liste</a>
+    <div class="edit-form">
+        {{ include('user/_form.html.twig') }}
+    </div>
+    
 {% endblock %}
