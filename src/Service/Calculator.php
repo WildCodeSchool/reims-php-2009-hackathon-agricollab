@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Entity\Equipment;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class Calculator
@@ -12,43 +13,48 @@ class Calculator
     {
         $this->session = $session;
     }
-    public function estimate(): ?float
+
+    public function estimate(): ?array
     {
-        $buyValue = $this->session->get('size');
-        $residualValue = $this->session->get('age');
-        $workTime = $this->session->get('usage');
+        $size = $this->session->get('size');
+        $age = $this->session->get('age');
+        $usage = $this->session->get('usage');
         $lifeTime = 8;
 
-        if (!isset($buyValue, $residualValue, $workTime)) {
+        if (!isset($size, $age, $usage)) {
             return null;
         }
-        switch ($buyValue) {
+
+        switch ($size) {
             case 'small':
-                $buyValue = 20000;
+                $buyValueMin = 20000;
+                $buyValueMax = 120000;
                 break;
             case 'medium':
-                $buyValue = 130000;
+                $buyValueMin = 130000;
+                $buyValueMax = 230000;
                 break;
             case 'large':
-                $buyValue = 240000;
+                $buyValueMin = 240000;
+                $buyValueMax = 440000;
                 break;
             default:
         }
 
-        switch ($residualValue) {
+        switch ($age) {
             case 'old':
-                $residualValue = 0.2;
+                $residualRatio = 0.2;
                 break;
             case 'average':
-                $residualValue = 0.5;
+                $residualRatio = 0.5;
                 break;
             case 'new':
-                $residualValue = 0.8;
+                $residualRatio = 0.8;
                 break;
             default:
         }
 
-        switch ($workTime) {
+        switch ($usage) {
             case 'low':
                 $workTime = 400;
                 break;
@@ -60,7 +66,31 @@ class Calculator
                 break;
             default:
         }
+
+        $simpleEstimationMin = (($buyValueMin * $residualRatio) / $lifeTime) / $workTime;
+        $simpleEstimationMax = (($buyValueMax * $residualRatio) / $lifeTime) / $workTime;
+
+        return [
+            'min' => round($simpleEstimationMin, 2),
+            'max' => round($simpleEstimationMax, 2)
+        ];
+    }
+    public function fineEstimate(Equipment $equipment): ?float
+    {
+        $buyValue = $equipment->getBuyValue();
+        $residualValue = $equipment->getResidualValue();
+        $workTime = $equipment->getWorkTime();
+        $lifeTime = $equipment->getLifetime();
+        $horsepower = $equipment->getHorsepower();
+
         $simpleEstimation = (($buyValue - $residualValue) / $lifeTime) / $workTime;
-        return $simpleEstimation;
+
+        if (!isset($horsepower)) {
+            return round($simpleEstimation, 2);
+        }
+
+        $complexeEstimation = ($simpleEstimation + ($horsepower / 10) * 0.65 +($horsepower * 0.36));
+
+        return round($complexeEstimation, 2);
     }
 }

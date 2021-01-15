@@ -49,27 +49,32 @@ class EquipmentController extends AbstractController
             $session->set('usage', $usage);
         }
 
-        $result = $calculator->estimate();
+        $results = $calculator->estimate();
+        $resultMin = $results['min']?? 0;
+        $resultMax = $results['max']?? 1000000;
 
         return $this->render('equipment/simple.html.twig', [
             'size' => $session->get('size'),
             'age' => $session->get('age'),
             'color' => $session->get('color'),
             'usage' => $session->get('usage'),
-            'result' => $result
+            'resultMin' => $resultMin,
+            'resultMax' => $resultMax
         ]);
     }
 
     /**
      * @Route("/new", name="equipment_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, Calculator $calculator): Response
     {
         $equipment = new Equipment();
         $form = $this->createForm(EquipmentType::class, $equipment);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $estimate = $calculator->fineEstimate($equipment);
+            $equipment->setUseCost($estimate);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($equipment);
             $entityManager->flush();
