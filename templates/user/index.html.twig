@@ -3,45 +3,33 @@
 {% block title %}Index des utilisateurs{% endblock %}
 
 {% block body %}
-    <h1>Index des utilisateurs</h1>
+    <h1 class="edit-title">Index des utilisateurs</h1>
+    <div class="table-section">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Pseudonyme</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.pseudo }}</td>
+                    <td>
+                        <a href="{{ path('user_show', {'id': user.id}) }}" class="display-button">Afficher</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="10">La recherche n'a pas donné de résultat.</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Pseudonyme</th>
-                <th>E-mail</th>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>Adresse</th>
-                <th>SIRET</th>
-                <th>Téléphone</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.pseudo }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.firstname }}</td>
-                <td>{{ user.lastname }}</td>
-                <td>{{ user.address }}</td>
-                <td>{{ user.siret }}</td>
-                <td>{{ user.phone }}</td>
-                <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">Afficher</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">Editer</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="10">La recherche n'a pas donné de résultat.</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('user_new') }}">Créer un nouveau profil</a>
+        <a href="{{ path('user_new') }}" class="user-button button-margin">Créer un nouveau profil</a>
+    </div>
 {% endblock %}
