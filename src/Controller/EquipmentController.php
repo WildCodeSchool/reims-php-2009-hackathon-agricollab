@@ -59,7 +59,8 @@ class EquipmentController extends AbstractController
             'color' => $session->get('color'),
             'usage' => $session->get('usage'),
             'resultMin' => $resultMin,
-            'resultMax' => $resultMax
+            'resultMax' => $resultMax,
+            'currentPage' => 'equipment_index'
         ]);
     }
 
@@ -85,6 +86,7 @@ class EquipmentController extends AbstractController
         return $this->render('equipment/new.html.twig', [
             'equipment' => $equipment,
             'form' => $form->createView(),
+            'currentPage' => 'equipment_new'
         ]);
     }
 

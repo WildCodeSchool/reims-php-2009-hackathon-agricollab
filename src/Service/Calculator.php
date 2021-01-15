@@ -66,6 +66,7 @@ class Calculator
                 break;
             default:
         }
+<<<<<<< HEAD
 
         $simpleEstimationMin = (($buyValueMin * $residualRatio) / $lifeTime) / $workTime;
         $simpleEstimationMax = (($buyValueMax * $residualRatio) / $lifeTime) / $workTime;
@@ -92,5 +93,9 @@ class Calculator
         $complexeEstimation = ($simpleEstimation + ($horsepower / 10) * 0.65 +($horsepower * 0.36));
 
         return round($complexeEstimation, 2);
+=======
+        $simpleEstimation = ($buyValue - $residualValue) / $lifeTime / $workTime;
+        return $simpleEstimation;
+>>>>>>> 0890dff7d12783326c6f50ed28a5dc99a48a2e90
     }
 }
