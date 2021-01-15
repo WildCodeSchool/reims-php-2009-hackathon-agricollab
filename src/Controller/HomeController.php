@@ -13,6 +13,6 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->redirectToRoute('simple_equipment');
+        return $this->redirectToRoute('simple_equipment', ['currentPage' => 'simple_equipment']);
     }
 }
