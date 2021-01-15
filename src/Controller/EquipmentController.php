@@ -27,7 +27,9 @@ class EquipmentController extends AbstractController
         ]);
     }
     /**
-     * @Route("/simple", name="simple_equipment", methods={"GET"})
+     * @Route("/simple/tractor", name="simple_equipment_tractor", methods={"GET"})
+     * @Route("/simple/harvester", name="simple_equipment_harvester", methods={"GET"})
+     * @Route("/simple/trailer", name="simple_equipment_trailer", methods={"GET"})
      */
     public function simpleEquipment(SessionInterface $session, Request $request, Calculator $calculator): Response
     {
@@ -50,8 +52,8 @@ class EquipmentController extends AbstractController
         }
 
         $results = $calculator->estimate();
-        $resultMin = $results['min']?? 0;
-        $resultMax = $results['max']?? 1000000;
+        $resultMin = $results['min'] ?? 0;
+        $resultMax = $results['max'] ?? 1000000;
 
         return $this->render('equipment/simple.html.twig', [
             'size' => $session->get('size'),
