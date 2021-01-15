@@ -52,35 +52,45 @@ p, a {
 }
 //CSS page simple estimate
 
+
 .selected {
     background-color: $oxfordBlue;
     color: $catskillWhite;
     max-width: 50px;
+    max-height: 50px;
     padding: 10px;
-    border-radius: 50%;
+    border-radius: 5%;
     margin-right: 5px;
     margin-left: 5px;
 
 }
 
 .small {
+    grid-column: 1;
     max-width: 40px;
+    max-height: 40px;
     padding: 10px;
-    border-radius: 50%;
+    border-radius: 5%;
     margin-right: 5px;
     margin-left: 5px;
+    text-align: center;
+}
+.medium {
+    grid-column: 2;
 }
 .medium, .old, .average, .new, .red, .blue, .yellow, .green {
     max-width: 55px;
     padding: 10px;
-    border-radius: 50%;
+    border-radius: 5%;
     margin-right: 5px;
     margin-left: 5px;
 }
 .large {
     max-width: 70px;
     padding: 10px;
-    border-radius: 50%;
+    grid-column: 3;
+    grid-column: 3;
+    border-radius: 5%;
     margin-right: 5px;
     margin-left: 5px;
 }
@@ -96,15 +106,16 @@ p, a {
 .green, .refine {
     background-color: $apple;
 }
-.tractorSize, .tractorAge, .tractorColor, .tractorUsage {
+.tractorAge, .tractorColor, .tractorUsage {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.tractorUsage {
+.tractorUsage, .tractorSize {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
 }
+
 .tractorUsage a, .refine {
     text-align: center;
     padding: 20px;
@@ -116,6 +127,11 @@ p, a {
 }
 details {
     margin-top: 10px;
+   
+}
+.result {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 // CSS de la barre de navigation
