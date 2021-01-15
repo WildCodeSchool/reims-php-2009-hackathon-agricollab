@@ -4,8 +4,11 @@
 
 body {
     background-color: $catskillWhite ;
-    color:$oxfordBlue ;
+    color: $oxfordBlue;
     font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0;
     padding: 0;
 }
@@ -40,6 +43,73 @@ p, a {
     margin: 0;
     padding: 0;
 
+}
+//CSS page simple estimate
+
+.selected {
+    background-color: $oxfordBlue;
+    color: $catskillWhite;
+    max-width: 50px;
+    padding: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-left: 5px;
+
+}
+
+.small {
+    max-width: 40px;
+    padding: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.medium, .old, .average, .new, .red, .blue, .yellow, .green {
+    max-width: 55px;
+    padding: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.large {
+    max-width: 70px;
+    padding: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.red {
+    background-color: red;
+}
+.blue {
+    background-color: $dodger;
+}
+.yellow {
+    background-color: $selectiveYellow;
+}
+.green, .refine {
+    background-color: $apple;
+}
+.tractorSize, .tractorAge, .tractorColor, .tractorUsage {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.tractorUsage {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+.tractorUsage a, .refine {
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+}
+.refine {
+    margin-top: 20px;
+
+}
+details {
+    margin-top: 10px;
 }
 
 // CSS de la barre de navigation
