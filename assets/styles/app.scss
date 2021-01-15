@@ -282,3 +282,45 @@ details {
     width: 10rem;
     padding: 0.6rem 0rem;
 }
+
+// Index tables
+.table-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.button-margin {
+    margin: auto;
+    width: 10rem;
+}
+.display-button {
+    color: white;
+    background-color: #0080bf;
+    border-radius: 2px;
+    font-size: 0.7rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    text-align: center;
+}
+.table {
+    border-collapse: collapse;
+    font-size: 0.9em;
+    margin: 2rem auto 2rem auto;
+    width: 90%;
+}
+.table thead tr {
+    background-color: #0080bf;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.table th, .table td {
+    padding: 12px 15px;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+.table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
